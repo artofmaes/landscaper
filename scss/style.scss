@@ -1,0 +1,729 @@
+/*SCSS BIJ EXAMEN DYNAMISCH*/
+@import"https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css";
+
+@import "variables";
+@import "mixins";
+
+*{@include paddingfix;}
+
+body{
+    font: 100%/1.6 $hoofdfont;
+    max-width: 1420px;
+    background: $achtergrondkleur;
+}
+
+@media screen and (min-width: 1420px){
+    body{
+        margin: 0 auto;
+    }
+}
+
+.scrollToTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    margin-left: -25px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: $accentkleur;
+    font-size: 1.6rem;
+    line-height: 54px;
+    text-align: center;
+    padding-left: 3px;
+    color: $basiskleur;
+    transition: all .5s ease;
+}
+
+.scrollToTop:hover { border-radius: 50%; }
+
+/*NAV*/
+
+/*BURGER - MOBILE*/
+
+a[href="#menu"]::before{
+    background: $hoofdkleurt;
+    display: block; 
+    position: fixed;
+    z-index: 1001;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: $basiskleur;
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+    padding: 10px;
+    transition: all .25s ease-in-out;
+}
+
+a[href="#menu"]:hover::before{
+    background-color: $accentkleur;
+    color: $basiskleur;
+}
+
+a.nonactief::before{
+    content:"\f0c9";
+    border: 1px solid $basiskleur;
+
+}
+
+a.actief::before{
+    color: $titelkleur;
+    content:"\f00d";
+}
+
+nav#mainnav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: hidden;
+}
+
+nav#mainnav ul.slide{
+    position: absolute;
+    z-index: 999;
+    top: -350px;
+    left: 0;
+    height: 30vh;
+    background: $basiskleur;
+    padding: 3.75em 0;
+    transition: top .5s ease-in-out;
+}
+
+nav#mainnav ul.opennav{
+    top: 0;
+}
+
+nav#mainnav a{
+    display: block;
+    padding: 1em; 
+    width: 100vw;
+    background: $basiskleur;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #222;
+    text-decoration: none;
+    text-align: center;
+    transition: all .25s ease-in-out;
+}
+
+nav#mainnav a:hover{
+    border-bottom: 2px solid $tekstkleur;
+}
+
+/*NAV Desktop*/
+
+@media screen and (min-width:1400px){
+    
+    #mainheader h2{
+        position: absolute;
+        top: 0;
+        left: 50px;
+        width: 20%;
+    }
+    nav#mainnav{
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        
+        
+    }
+
+    nav#mainnav ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav#mainnav a{
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+        text-align: center;
+        color: $basiskleur;
+        background: none;
+        text-decoration: none;
+        margin-top: -50px;
+        margin-right: 50px;
+        transition: all .5s ease;
+        
+    }
+    
+    nav#mainnav a:hover{
+        border-bottom: 5px solid $basiskleur;
+    }
+
+
+    nav#mainnav ul.slide{
+        width: 100%;
+        height: 0;
+        top: 3em;
+        padding: 0;
+    }
+    
+    a[href="#menu"]::before{
+        top: -200px;
+    }
+}
+
+
+/*HEADER MOBILE*/
+
+header{
+    height: 100vh;
+    position: relative;
+    
+      h2{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10000;
+        font-size: 1.5em;
+        color: $basiskleur;
+        text: {
+            align: left;
+        }
+        padding-top: 10px;
+        padding-left: 10px;
+        
+        a{
+            text-decoration: none;
+            color: $basiskleur;
+        }
+    }
+    .omhelzing{
+        position: absolute;
+        z-index: 88;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background:$hoofdkleurt;
+        div{
+            position: absolute;
+            bottom: 150px;
+            left: 20%;
+            right: 20%;
+        }
+    }
+    h1{
+        color: $basiskleur;
+        font-weight: 600;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    
+    p{
+        color: $basiskleur;
+        text-align: center;
+    }
+    
+    button{
+        @include button;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        
+        a{
+            text-decoration: none;
+            color: $basiskleur;
+        }
+    }
+    
+  
+}
+
+/*SECTION-ONE MOBILE*/
+
+#section-one{
+    padding: 20px;
+    background: $achtergrondkleur;
+    img{
+        width: 100%;
+        padding: 0;
+        margin-top: 30px;
+    }
+    
+    button{
+        @include button;
+        padding: 10px;
+        a{
+            text-decoration: none;
+            color: $basiskleur;
+        }
+    }
+    
+    h2{
+        font-size: 1.5em;
+        
+        span{
+            font-weight: 600;
+            color: $hoofdkleur;
+        }
+    }
+    .streepje-groen{
+        height: 4px;
+        background: $hoofdkleur;
+        width: 20%;
+        margin: 10px 0 20px;
+    }
+    
+    p{
+        color: $tekstkleur;
+        font-size: .8em;
+        margin: 20px 0;
+    }
+    
+    h3{
+        font-weight: 600;
+        font-size: 1.2em;
+        color: $titelkleur;
+        margin-bottom: 0;
+    }
+}
+
+/*SECTION ONE TABLET*/
+@media screen and (min-width: 750px){
+    .flextime2{
+        display: flex;
+        justify-content: space-around;
+        
+        div{
+           width: 45%; 
+        }
+    }
+    
+    .flextime1{padding-left: 20px;}
+}
+
+/*SECTION ONE DESKTOP*/
+@media screen and (min-width: 1400px){
+    #section-one{
+        display: flex;
+        justify-content: space-around;
+        
+        
+    }
+    .flextime1{
+            padding-top: 30px;
+    }
+}
+/*SECTION TWO MOBILE*/
+
+#section-two{
+    padding: 20px;
+    padding-bottom: 30px;
+    background: $accentkleur;
+    color: $basiskleur;
+    h2{
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .streepje-wit{
+        height: 3px;
+        background: $basiskleur;
+        width: 20%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    h3{
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+    
+    p{
+        text-align: center;
+        font-size: .8em;
+    }
+    .kader{
+        display: block;
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+        border: 5px solid $hoofdkleur;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/*SECTION TWO TABLET*/
+
+@media screen and (min-width:750px){
+    .flextime{
+        display: flex;
+        justify-content: space-around;
+        .noice{
+           width: 45%; 
+        }
+    }
+}
+
+/*SECTION TWO DESKTOP*/
+
+@media screen and (min-width:1400px){
+    
+    #section-two{
+        padding-bottom: 30px;
+        .streepje-wit{
+        width: 5%;
+    }
+    }
+    .flextime{
+        display: flex;
+        justify-content: center;
+        .noice{
+            display: flex;
+            justify-content: space-around;
+            .nogeendiv{
+                width: 45%;
+            }
+            
+        }
+    }
+}
+/*SECTION THREE */
+
+#section-three{
+    padding: 20px;
+    background: $achtergrondkleur;
+    
+     h2{
+        color: $titelkleur;
+         text-align: center;
+        font-size: 1.5em;
+         margin-bottom: 10px;
+    }
+    .streepje-groen{
+        height: 4px;
+        background: $hoofdkleur;
+        width: 20%;
+        margin: 0 auto;
+    }
+    
+    p{
+        color: $tekstkleur;
+        font-size: .8em;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    
+    .toolbar{
+        text-align: center;
+        button{
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    }
+    
+    #portfolio {  
+    margin: 1em 0;
+    column-count: 1;
+    column-gap: 1em;
+    column-width: 50%;
+    }
+    
+    @media screen and (min-width: 750px){
+        #portfolio{
+            column-count: 2;
+        }
+    }
+
+    @media screen and (min-width: 1400px) {
+        #portfolio { 
+            column-count: 3;
+            column-width: 33.33333333333333%;
+        }
+    }
+    .tile { 
+        transform: scale(0);
+        transition: all 350ms ease;
+
+    }
+
+    .scale-anm { transform: scale(1);}
+
+    .tile img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin-bottom: 1em;  
+    }
+
+    .btn {
+        @include button;
+    }
+
+    .btn:hover { 
+        color:$basiskleur; 
+        background: $accentkleur;
+    }
+
+}
+
+/*SECTION FOUR MOBILE*/
+
+#section-four{
+    position: relative;
+    height: 50vh;
+    .coverup{
+        position: absolute;
+        padding: 20px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50vh;
+        background:$accentkleurt;
+    }
+    color: $basiskleur;
+    h2{
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .streepje-wit{
+        height: 3px;
+        background: $basiskleur;
+        width: 20%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    
+    h3{
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+    
+    p{
+        text-align: center;
+        font-size: .8em;
+    }
+    p:first-of-type{
+        margin-bottom: 50px;
+    }
+    
+    .circles{
+        display: flex;
+        justify-content: center;
+        
+        .circle{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: $basiskleur;
+            margin: 10px 10px 0;
+            
+    
+        }
+        .toe{
+            background: $basiskleurt;
+        }
+    }
+}
+
+/*SECTION FOUR TABLET*/
+
+@media screen and (min-width: 750px){
+    .coverup{
+        h2{
+            padding-top: 40px;
+        }
+    }
+}
+
+/*SECTION FOUR TABLET*/
+@media screen and (min-width: 1400px){
+    #section-four{
+        .streepje-wit{
+            width: 5%;
+        }
+    }
+    
+    .coverup{
+        
+        
+        p{
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+    }
+}
+
+/*SECTION FIVE MOBILE*/
+
+#section-five{
+    padding: 20px;
+    background: $achtergrondkleur;
+     h2{
+         color: $titelkleur;
+         text-align: center;
+        font-size: 1.5em;
+         margin-bottom: 10px;
+    }
+    .streepje-groen{
+        height: 4px;
+        background: $hoofdkleur;
+        width: 20%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    
+    p{
+        color: $tekstkleur;
+        font-size: .8em;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    a{
+        text-decoration: none;
+        color: $tekstkleur;
+        text-align: center;
+    }
+    
+
+    
+    h3{
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+        
+    }
+    .streepje-grijs{
+        height: 4px;
+        background: $titelkleur;
+        width: 15%;
+        margin: 0 auto;
+    }
+    
+    form{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    form ul li{padding-bottom: 1.5em;}
+
+    input[type=text], input[type=email], textarea{
+        width: 100%;
+        border: 1px solid #BBB;
+        border-radius: 10px;
+        background: $basiskleur;
+        padding: 1em;
+        font: 100%/1.3 "Roboto", Arial, sans-serif;
+        color: #666;
+
+    }
+
+    textarea{min-height: 200px;}
+
+    input[type=submit]{
+        @include button;
+        @include animatie;
+    }
+
+    input[type=submit]:hover{
+        background: $hoofdkleur;
+        cursor: pointer;
+    }
+}
+
+/*SECTION FIVE TABLET*/
+@media screen and (min-width:750px){
+    .eyo{
+        display: flex;
+        justify-content: space-around;
+        
+        div{
+            width: 45%;
+        }
+    }
+}
+
+/*SECTION FIVE DESKTOP*/
+
+@media screen and (min-width: 1400px){
+    #section-five{
+         .streepje-groen{
+        width: 5%;
+    }
+    }
+    .eyo{
+        display: block;
+        
+        .address{
+            display: flex;
+            justify-content: space-around;
+            width: 900px;
+            margin: 0 auto;
+        }
+        .formke{
+            width: 900px;
+            margin: 0 auto;
+        }
+    }
+}
+
+/*FOOTER*/
+
+footer{
+    height: 25vh;
+    background: $titelkleur;
+    padding: 20px;
+    
+    ul{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        
+        li{
+            font-size: 1.5em;
+            a{
+                color: $hoofdkleur;
+                
+                :hover{
+                    color: $accentkleur;
+                }
+            }
+        }
+        
+    }
+    
+    p{
+        text-align: center;
+        color: $tekstkleur;
+        margin-top: 20px;
+        
+        a{
+            text-decoration: none;
+            font-weight: 600;
+            color: $tekstkleur;
+            
+            :hover{
+                color: $hoofdkleur;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1400px){
+    footer{
+        ul{
+            width: 25%;
+        }
+    }
+}
